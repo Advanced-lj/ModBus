@@ -1,0 +1,13 @@
+modbus_master\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/list.c
+modbus_master\list.o: D:\KEIL5\install\ARM\ARMCC\Bin\..\include\stdlib.h
+modbus_master\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+modbus_master\list.o: D:\KEIL5\install\ARM\ARMCC\Bin\..\include\stddef.h
+modbus_master\list.o: D:\KEIL5\install\ARM\ARMCC\Bin\..\include\stdint.h
+modbus_master\list.o: ../Inc/FreeRTOSConfig.h
+modbus_master\list.o: ../Inc/main.h
+modbus_master\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+modbus_master\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+modbus_master\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+modbus_master\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+modbus_master\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+modbus_master\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

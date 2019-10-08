@@ -1,0 +1,15 @@
+modbus_master\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+modbus_master\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+modbus_master\croutine.o: D:\KEIL5\install\ARM\ARMCC\Bin\..\include\stddef.h
+modbus_master\croutine.o: D:\KEIL5\install\ARM\ARMCC\Bin\..\include\stdint.h
+modbus_master\croutine.o: ../Inc/FreeRTOSConfig.h
+modbus_master\croutine.o: ../Inc/main.h
+modbus_master\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+modbus_master\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+modbus_master\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+modbus_master\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
+modbus_master\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+modbus_master\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+modbus_master\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+modbus_master\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h
+modbus_master\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
