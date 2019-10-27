@@ -2,17 +2,17 @@
 #define _modbus_
 
 #include "stm32f10x_conf.h"
-#define RS485_RT_1 GPIO_SetBits(GPIOA, GPIO_Pin_5)     //485·¢ËÍ×´Ì¬
-#define RS485_RT_0 GPIO_ResetBits(GPIOA, GPIO_Pin_5)   //485ÖÃ½ÓÊÕ×´Ì¬
+#define RS485_RT_1 GPIO_SetBits(GPIOA, GPIO_Pin_5)     //485å‘é€çŠ¶æ€
+#define RS485_RT_0 GPIO_ResetBits(GPIOA, GPIO_Pin_5)   //485ç½®æ¥æ”¶çŠ¶æ€
 typedef struct
 {
- u8 myadd;//±¾Éè±¸µÄµØÖ·
- u8 rcbuf[100]; //MODBUS½ÓÊÕ»º³åÇø
- u16 timout;//MODbusµÄÊı¾İ¶ÏĞøÊ±¼ä	
- u8 recount;//MODbus¶Ë¿ÚÒÑ¾­ÊÕµ½µÄÊı¾İ¸öÊı
- u8 timrun;//MODbus¶¨Ê±Æ÷ÊÇ·ñ¼ÆÊ±µÄ±êÖ¾
- u8  reflag;//ÊÕµ½Ò»Ö¡Êı¾İµÄ±êÖ¾
- u8 Sendbuf[100]; //MODbus·¢ËÍ»º³åÇø	
+ u8 myadd;//æœ¬è®¾å¤‡çš„åœ°å€
+ u8 rcbuf[100]; //MODBUSæ¥æ”¶ç¼“å†²åŒº
+ u16 timout;//MODbusçš„æ•°æ®æ–­ç»­æ—¶é—´	
+ u8 recount;//MODbusç«¯å£å·²ç»æ”¶åˆ°çš„æ•°æ®ä¸ªæ•°
+ u8 timrun;//MODbuså®šæ—¶å™¨æ˜¯å¦è®¡æ—¶çš„æ ‡å¿—
+ u8  reflag;//æ”¶åˆ°ä¸€å¸§æ•°æ®çš„æ ‡å¿—
+ u8 Sendbuf[100]; //MODbuså‘é€ç¼“å†²åŒº	
 
 }MODBUS;
 

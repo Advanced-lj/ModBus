@@ -5,7 +5,7 @@
 //==========================================
 #include "modbusCRC.h"
 
-/* CRC ¸ßÎ»×Ö½ÚÖµ±í */
+/* CRC é«˜ä½å­—èŠ‚å€¼è¡¨ */
 const uchar auchCRCHi[] = {
     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0,
     0x80, 0x41, 0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41,
@@ -34,7 +34,7 @@ const uchar auchCRCHi[] = {
     0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0,
     0x80, 0x41, 0x00, 0xC1, 0x81, 0x40
 } ;
-/* CRCµÍÎ»×Ö½ÚÖµ±í*/
+/* CRCä½ä½å­—èŠ‚å€¼è¡¨*/
 const uchar auchCRCLo[] = {
     0x00, 0xC0, 0xC1, 0x01, 0xC3, 0x03, 0x02, 0xC2, 0xC6, 0x06,
     0x07, 0xC7, 0x05, 0xC5, 0xC4, 0x04, 0xCC, 0x0C, 0x0D, 0xCD,
@@ -66,19 +66,19 @@ const uchar auchCRCLo[] = {
 
 
 /******************************************************************
-¹¦ÄÜ: CRC16Ğ£Ñé
-ÊäÈë:
-Êä³ö:
+åŠŸèƒ½: CRC16æ ¡éªŒ
+è¾“å…¥:
+è¾“å‡º:
 ******************************************************************/
 uint crc16( uchar *puchMsg, uint usDataLen )
 {
-    uchar uchCRCHi = 0xFF ; // ¸ßCRC×Ö½Ú³õÊ¼»¯
-    uchar uchCRCLo = 0xFF ; // µÍCRC ×Ö½Ú³õÊ¼»¯
-    unsigned long uIndex ; 		// CRCÑ­»·ÖĞµÄË÷Òı
+    uchar uchCRCHi = 0xFF ; // é«˜CRCå­—èŠ‚åˆå§‹åŒ–
+    uchar uchCRCLo = 0xFF ; // ä½CRC å­—èŠ‚åˆå§‹åŒ–
+    unsigned long uIndex ; 		// CRCå¾ªç¯ä¸­çš„ç´¢å¼•
 
-    while ( usDataLen-- ) 	// ´«ÊäÏûÏ¢»º³åÇø
+    while ( usDataLen-- ) 	// ä¼ è¾“æ¶ˆæ¯ç¼“å†²åŒº
     {
-        uIndex = uchCRCHi ^ *puchMsg++ ; 	// ¼ÆËãCRC
+        uIndex = uchCRCHi ^ *puchMsg++ ; 	// è®¡ç®—CRC
         uchCRCHi = uchCRCLo ^ auchCRCHi[uIndex] ;
         uchCRCLo = auchCRCLo[uIndex] ;
     }

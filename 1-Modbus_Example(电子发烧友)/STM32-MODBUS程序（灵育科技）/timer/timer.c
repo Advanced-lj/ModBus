@@ -1,5 +1,5 @@
 #include "timer.h"
-void Timer2_Init()    //1ms²úÉú1´Î¸üÐÂÊÂ¼þ
+void Timer2_Init()    //1msäº§ç”Ÿ1æ¬¡æ›´æ–°äº‹ä»¶
 {
 	TIM_TimeBaseInitTypeDef timer;
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);

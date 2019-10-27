@@ -17,7 +17,7 @@ void RS485_Init()
     GPIO_Init(GPIOA, &GPIO_InitStructure);
     
     
-     RS485_RT_0; //Ê¹MAX485Ğ¾Æ¬´¦ÓÚ½ÓÊÕ×´Ì¬
+     RS485_RT_0; //ä½¿MAX485èŠ¯ç‰‡å¤„äºæ¥æ”¶çŠ¶æ€
 	
        //USART1_TX   PB.10
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
@@ -50,7 +50,7 @@ void RS485_Init()
 //		RS485_IsrInit();  //485?????
 }
 
-void RS485_byte(u8 d)  //485·¢ËÍÒ»¸ö×Ö½Ú
+void RS485_byte(u8 d)  //485å‘é€ä¸€ä¸ªå­—èŠ‚
 {
   
  // RS485_RT_1;  //??
@@ -63,22 +63,22 @@ void RS485_byte(u8 d)  //485·¢ËÍÒ»¸ö×Ö½Ú
 }
 
 
-void USART2_IRQHandler() //MODBUS×Ö½Ú½ÓÊÕÖĞ¶Ï
+void USART2_IRQHandler() //MODBUSå­—èŠ‚æ¥æ”¶ä¸­æ–­
 {
     u8 st,sbuf;
     st=USART_GetITStatus(USART2, USART_IT_RXNE);
     if(st==SET)  //
    {   		 
 		  sbuf=USART2->DR;
-     if( modbus.reflag==1)  //ÓĞÊı¾İ°üÕıÔÚ´¦Àí
+     if( modbus.reflag==1)  //æœ‰æ•°æ®åŒ…æ­£åœ¨å¤„ç†
 		 {
 		   return ;
 		 }			 
 		  modbus.rcbuf[modbus.recount++]=sbuf;
       modbus.timout=0;  
-      if(modbus.recount==1)  //ÊÕµ½Ö÷»ú·¢À´µÄÒ»Ö¡Êı¾İµÄµÚÒ»×Ö½Ú
+      if(modbus.recount==1)  //æ”¶åˆ°ä¸»æœºå‘æ¥çš„ä¸€å¸§æ•°æ®çš„ç¬¬ä¸€å­—èŠ‚
 			{
-			  modbus.timrun=1;  //Æô¶¯¶¨Ê±
+			  modbus.timrun=1;  //å¯åŠ¨å®šæ—¶
 			}
    } 
 }

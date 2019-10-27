@@ -7,36 +7,36 @@ extern u16 Reg[];
 
 
 /*
-ÒòÎª²¨ÌØÂÊ 9600
-1Î»Êı¾İµÄÊ±¼äÎª 1000000us/9600bit/s=104us
-Ò»¸ö×Ö½ÚÎª    104us*10Î»  =1040us
-ËùÒÔ MODBUSÈ·¶¨Ò»¸öÊı¾İÖ¡Íê³ÉµÄÊ±¼äÎª   1040us*3.5=3.64ms  ->10ms
+å› ä¸ºæ³¢ç‰¹ç‡ 9600
+1ä½æ•°æ®çš„æ—¶é—´ä¸º 1000000us/9600bit/s=104us
+ä¸€ä¸ªå­—èŠ‚ä¸º    104us*10ä½  =1040us
+æ‰€ä»¥ MODBUSç¡®å®šä¸€ä¸ªæ•°æ®å¸§å®Œæˆçš„æ—¶é—´ä¸º   1040us*3.5=3.64ms  ->10ms
 */
 
 void Mosbus_Init()
 {
-	modbus.myadd=4;  //±¾´ÓÉè±¸µÄµØÖ·
-	modbus.timrun=0; //MODbus¶¨Ê±Æ÷Í£Ö¹¼ÆÊ±
+	modbus.myadd=4;  //æœ¬ä»è®¾å¤‡çš„åœ°å€
+	modbus.timrun=0; //MODbuså®šæ—¶å™¨åœæ­¢è®¡æ—¶
   RS485_Init();
 }
 
 
 
 
-void Modbud_fun3()  //3ºÅ¹¦ÄÜÂë´¦Àí  ---Ö÷»úÒª¶ÁÈ¡±¾´Ó»úµÄ¼Ä´æÆ÷
+void Modbud_fun3()  //3å·åŠŸèƒ½ç å¤„ç†  ---ä¸»æœºè¦è¯»å–æœ¬ä»æœºçš„å¯„å­˜å™¨
 {
   u16 Regadd;
 	u16 Reglen;
 	u16 byte;
 	u16 i,j;
 	u16 crc;
-	Regadd=modbus.rcbuf[2]*256+modbus.rcbuf[3];  //µÃµ½Òª¶ÁÈ¡µÄ¼Ä´æÆ÷µÄÊ×µØÖ·
-	Reglen=modbus.rcbuf[4]*256+modbus.rcbuf[5];  //µÃµ½Òª¶ÁÈ¡µÄ¼Ä´æÆ÷µÄÊıÁ¿
+	Regadd=modbus.rcbuf[2]*256+modbus.rcbuf[3];  //å¾—åˆ°è¦è¯»å–çš„å¯„å­˜å™¨çš„é¦–åœ°å€
+	Reglen=modbus.rcbuf[4]*256+modbus.rcbuf[5];  //å¾—åˆ°è¦è¯»å–çš„å¯„å­˜å™¨çš„æ•°é‡
 	i=0;
 	
-	modbus.Sendbuf[i++]=modbus.myadd;//±¾Éè±¸µØÖ·
-  modbus.Sendbuf[i++]=0x03;        //¹¦ÄÜÂë      
-  byte=Reglen*2;   //Òª·µ»ØµÄÊı¾İ×Ö½ÚÊı
+	modbus.Sendbuf[i++]=modbus.myadd;//æœ¬è®¾å¤‡åœ°å€
+  modbus.Sendbuf[i++]=0x03;        //åŠŸèƒ½ç       
+  byte=Reglen*2;   //è¦è¿”å›çš„æ•°æ®å­—èŠ‚æ•°
 //modbus.Sendbuf[i++]=byte/256;  //
 	modbus.Sendbuf[i++]=byte%256;
 	
@@ -59,20 +59,20 @@ void Modbud_fun3()  //3ºÅ¹¦ÄÜÂë´¦Àí  ---Ö÷»úÒª¶ÁÈ¡±¾´Ó»úµÄ¼Ä´æÆ÷
 	RS485_RT_0;  //
 }
 
-void Modbud_fun6()  //6ºÅ¹¦ÄÜÂë´¦Àí
+void Modbud_fun6()  //6å·åŠŸèƒ½ç å¤„ç†
 {
   u16 Regadd;
 	u16 val;
 	u16 i,crc,j;
 	i=0;
-  Regadd=modbus.rcbuf[2]*256+modbus.rcbuf[3];  //µÃµ½ÒªĞŞ¸ÄµÄµØÖ· 
-	val=modbus.rcbuf[4]*256+modbus.rcbuf[5];     //ĞŞ¸ÄºóµÄÖµ
-	Reg[Regadd]=val;  //ĞŞ¸Ä±¾Éè±¸ÏàÓ¦µÄ¼Ä´æÆ÷
+  Regadd=modbus.rcbuf[2]*256+modbus.rcbuf[3];  //å¾—åˆ°è¦ä¿®æ”¹çš„åœ°å€ 
+	val=modbus.rcbuf[4]*256+modbus.rcbuf[5];     //ä¿®æ”¹åçš„å€¼
+	Reg[Regadd]=val;  //ä¿®æ”¹æœ¬è®¾å¤‡ç›¸åº”çš„å¯„å­˜å™¨
 	
-	//ÒÔÏÂÎª»ØÓ¦Ö÷»ú
+	//ä»¥ä¸‹ä¸ºå›åº”ä¸»æœº
 	
-	modbus.Sendbuf[i++]=modbus.myadd;//±¾Éè±¸µØÖ·
-  modbus.Sendbuf[i++]=0x06;        //¹¦ÄÜÂë 
+	modbus.Sendbuf[i++]=modbus.myadd;//æœ¬è®¾å¤‡åœ°å€
+  modbus.Sendbuf[i++]=0x06;        //åŠŸèƒ½ç  
   modbus.Sendbuf[i++]=Regadd/256;
 	modbus.Sendbuf[i++]=Regadd%256;
 	modbus.Sendbuf[i++]=val/256;
@@ -95,31 +95,31 @@ void Mosbus_Event()
 {
 	u16 crc;
 	u16 rccrc;
-  if(modbus.reflag==0)  //Ã»ÓĞÊÕµ½MODbusµÄÊı¾İ°ü
+  if(modbus.reflag==0)  //æ²¡æœ‰æ”¶åˆ°MODbusçš„æ•°æ®åŒ…
 	{
 	  return ;
 	}
 	
-	crc= crc16(&modbus.rcbuf[0], modbus.recount-2);       //¼ÆËãĞ£ÑéÂë
-  rccrc=modbus.rcbuf[modbus.recount-2]*256 + modbus.rcbuf[modbus.recount-1];  //ÊÕµ½µÄĞ£ÑéÂë
-  if(crc ==  rccrc)  //Êı¾İ°ü·ûºÅCRCĞ£Ñé¹æÔò
+	crc= crc16(&modbus.rcbuf[0], modbus.recount-2);       //è®¡ç®—æ ¡éªŒç 
+  rccrc=modbus.rcbuf[modbus.recount-2]*256 + modbus.rcbuf[modbus.recount-1];  //æ”¶åˆ°çš„æ ¡éªŒç 
+  if(crc ==  rccrc)  //æ•°æ®åŒ…ç¬¦å·CRCæ ¡éªŒè§„åˆ™
 	{ 
-	  if(modbus.rcbuf[0] == modbus.myadd)  //È·ÈÏÊı¾İ°üÊÇ·ñÊÇ·¢¸ø±¾Éè±¸µÄ 
+	  if(modbus.rcbuf[0] == modbus.myadd)  //ç¡®è®¤æ•°æ®åŒ…æ˜¯å¦æ˜¯å‘ç»™æœ¬è®¾å¤‡çš„ 
 		{
-		  switch(modbus.rcbuf[1])  //·ÖÎö¹¦ÄÜÂë
+		  switch(modbus.rcbuf[1])  //åˆ†æåŠŸèƒ½ç 
 			{
 			  case 0:     break;
 			  case 1:     break;
 		    case 2:     break;
-		    case 3:     Modbud_fun3();    break;   //3ºÅ¹¦ÄÜÂë´¦Àí
+		    case 3:     Modbud_fun3();    break;   //3å·åŠŸèƒ½ç å¤„ç†
 		    case 4:     break;
 		    case 5:     break;
-		    case 6:     Modbud_fun6();     break;   //6ºÅ¹¦ÄÜÂë´¦Àí
+		    case 6:     Modbud_fun6();     break;   //6å·åŠŸèƒ½ç å¤„ç†
 	      case 7:     break;			
         //....				
 			}
 		}
-		else if(modbus.rcbuf[0] == 0)   //¹ã²¥µØÖ·
+		else if(modbus.rcbuf[0] == 0)   //å¹¿æ’­åœ°å€
 		{
 		
 		}

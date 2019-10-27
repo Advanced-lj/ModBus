@@ -4,7 +4,7 @@
 
 #include "stm32f10x_conf.h"
 void RS485_Init(void);
-void RS485_byte(u8 d);  //485·¢ËÍÒ»¸ö×Ö½Ú
+void RS485_byte(u8 d);  //485å‘é€ä¸€ä¸ªå­—èŠ‚
 
 #endif
 

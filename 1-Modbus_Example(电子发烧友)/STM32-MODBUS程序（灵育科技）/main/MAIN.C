@@ -4,7 +4,7 @@
 #include "modbus_uart.h"
 #include "modbus.h"
 
-u16 Reg[]={0x0000,   //±¾Éè±¸¼Ä´æÆ÷ÖĞµÄÖµ
+u16 Reg[]={0x0000,   //æœ¬è®¾å¤‡å¯„å­˜å™¨ä¸­çš„å€¼
            0x0001,
            0x0002,
            0x0003,
@@ -45,7 +45,7 @@ void Isr_Init()
 
 
 
-void TIM2_IRQHandler()//¶¨Ê±Æ÷2µÄÖĞ¶Ï·şÎñ×Óº¯Êı  1msÒ»´ÎÖĞ¶Ï
+void TIM2_IRQHandler()//å®šæ—¶å™¨2çš„ä¸­æ–­æœåŠ¡å­å‡½æ•°  1msä¸€æ¬¡ä¸­æ–­
 {
   u8 st;
   st= TIM_GetFlagStatus(TIM2, TIM_FLAG_Update);	
@@ -55,10 +55,10 @@ void TIM2_IRQHandler()//¶¨Ê±Æ÷2µÄÖĞ¶Ï·şÎñ×Óº¯Êı  1msÒ»´ÎÖĞ¶Ï
 		if(modbus.timrun!=0)
 		{
 		  modbus.timout++; 
-		  if(modbus.timout>=8)  //¼ä¸ôÊ±¼ä´ïµ½ÁËÊ±¼ä
+		  if(modbus.timout>=8)  //é—´éš”æ—¶é—´è¾¾åˆ°äº†æ—¶é—´
 			{
-				modbus.timrun=0;//¹Ø±Õ¶¨Ê±Æ÷--Í£Ö¹¶¨Ê±
-				modbus.reflag=1;  //ÊÕµ½Ò»Ö¡Êı¾İ
+				modbus.timrun=0;//å…³é—­å®šæ—¶å™¨--åœæ­¢å®šæ—¶
+				modbus.reflag=1;  //æ”¶åˆ°ä¸€å¸§æ•°æ®
 			}
 		}  		
 	}	
@@ -75,7 +75,7 @@ int main()
 	Isr_Init();
   while(1)
 	{
-		Mosbus_Event();  //´¦ÀíMODbusÊı¾İ
+		Mosbus_Event();  //å¤„ç†MODbusæ•°æ®
 
 	}
 }

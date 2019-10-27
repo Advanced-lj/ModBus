@@ -475,12 +475,14 @@ ARM Macro Assembler    Page 8
               00000400 
               00000200 
               00000000 
-Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=..\outpu
-t\startup_stm32f10x_md.d -o..\output\startup_stm32f10x_md.o -ID:\App_program\md
-k-5\ARM\RV31\INC -ID:\App_program\mdk-5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include 
--IDevice\Include --list=.\startup_stm32f10x_md.lst ..\STM32F10x_StdPeriph_Lib_V
-3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f
-10x_md.s
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=..\output\startup_stm32f10x_md.d -o..\output\startup_stm32f10x_md.
+o -I.\RTE\_Target_1 -IC:\Users\Riggin\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\C
+MSIS\Core\Include -IC:\Users\Riggin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\
+2.3.0\Device\Include --predefine="__UVISION_VERSION SETA 528" --predefine="_RTE
+_ SETA 1" --predefine="STM32F10X_HD SETA 1" --list=.\startup_stm32f10x_md.lst .
+.\STM32F10x_StdPeriph_Lib_V3.5.0\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x
+\startup\arm\startup_stm32f10x_md.s
 
 
 
@@ -1419,4 +1421,4 @@ Symbol: __use_two_region_memory
       None
 Comment: __use_two_region_memory unused
 3 symbols
-406 symbols in table
+409 symbols in table
